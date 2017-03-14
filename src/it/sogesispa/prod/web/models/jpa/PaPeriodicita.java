@@ -1,7 +1,9 @@
 package it.sogesispa.prod.web.models.jpa;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.List;
 
 
@@ -20,6 +22,10 @@ public class PaPeriodicita implements Serializable {
 	private long id;
 
 	private String descrizione;
+	
+
+	@Column(name="INT_GIORNI")
+	private Integer intGiorni;
 
 	//bi-directional many-to-one association to PaPianificazioni
 	@OneToMany(mappedBy="paPeriodicita")
@@ -66,4 +72,14 @@ public class PaPeriodicita implements Serializable {
 		return paPianificazioni;
 	}
 
+	public Integer getIntGiorni() {
+		return intGiorni;
+	}
+
+	public void setIntGiorni(Integer intGiorni) {
+		this.intGiorni = intGiorni;
+	}
+
+	
+	
 }

@@ -23,7 +23,7 @@ public class PaLinea implements Serializable {
 
 	//bi-directional many-to-one association to PaTipiMacchina
 	@OneToMany(mappedBy="paLinea")
-	private List<PaTipiMacchina> paTipiMacchinas;
+	private List<PaMacchine> paMacchinas;
 
 	public PaLinea() {
 	}
@@ -44,26 +44,26 @@ public class PaLinea implements Serializable {
 		this.descrizione = descrizione;
 	}
 
-	public List<PaTipiMacchina> getPaTipiMacchinas() {
-		return this.paTipiMacchinas;
+	public List<PaMacchine> getPaMacchinas() {
+		return this.paMacchinas;
 	}
 
-	public void setPaTipiMacchinas(List<PaTipiMacchina> paTipiMacchinas) {
-		this.paTipiMacchinas = paTipiMacchinas;
+	public void setPaMacchinas(List<PaMacchine> paMacchinas) {
+		this.paMacchinas = paMacchinas;
 	}
 
-	public PaTipiMacchina addPaTipiMacchina(PaTipiMacchina paTipiMacchina) {
-		getPaTipiMacchinas().add(paTipiMacchina);
-		paTipiMacchina.setPaLinea(this);
+	public PaMacchine addPaMacchina(PaMacchine paMacchina) {
+		getPaMacchinas().add(paMacchina);
+		paMacchina.setPaLinea(this);
 
-		return paTipiMacchina;
+		return paMacchina;
 	}
 
-	public PaTipiMacchina removePaTipiMacchina(PaTipiMacchina paTipiMacchina) {
-		getPaTipiMacchinas().remove(paTipiMacchina);
-		paTipiMacchina.setPaLinea(null);
+	public PaMacchine removePaMacchina(PaMacchine paMacchina) {
+		getPaMacchinas().remove(paMacchina);
+		paMacchina.setPaLinea(null);
 
-		return paTipiMacchina;
+		return paMacchina;
 	}
 
 }

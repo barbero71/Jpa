@@ -35,10 +35,7 @@ public class PaTipiMacchina implements Serializable {
 	@OneToMany(mappedBy="paTipiMacchina")
 	private List<PaMacchine> paMacchines;
 
-	//bi-directional many-to-one association to PaLinea
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="ID_LINEA")
-	private PaLinea paLinea;
+
 
 	public PaTipiMacchina() {
 	}
@@ -133,12 +130,6 @@ public class PaTipiMacchina implements Serializable {
 		return paMacchine;
 	}
 
-	public PaLinea getPaLinea() {
-		return this.paLinea;
-	}
 
-	public void setPaLinea(PaLinea paLinea) {
-		this.paLinea = paLinea;
-	}
 
 }

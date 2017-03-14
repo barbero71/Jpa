@@ -1,7 +1,9 @@
 package it.sogesispa.prod.web.models.jpa;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.Date;
 import java.util.List;
 
@@ -43,6 +45,11 @@ public class PaMacchine implements Serializable {
 	//bi-directional many-to-one association to PaPianificazioni
 	@OneToMany(mappedBy="paMacchine")
 	private List<PaPianificazioni> paPianificazionis;
+	
+	//bi-directional many-to-one association to PaLinea
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="ID_LINEA")
+	private PaLinea paLinea;
 
 	public PaMacchine() {
 	}
@@ -129,6 +136,13 @@ public class PaMacchine implements Serializable {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+	}
+	public PaLinea getPaLinea() {
+		return this.paLinea;
+	}
+
+	public void setPaLinea(PaLinea paLinea) {
+		this.paLinea = paLinea;
 	}
 
 }
